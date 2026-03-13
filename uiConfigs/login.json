@@ -2,30 +2,40 @@
   "root": "login-form",
   "elements": {
     "login-form": {
-      "type": "Stack",
+      "type": "Card",
       "props": {
-        "direction": "vertical",
-        "gap": 16
+        "title": "Login"
       },
       "children": [
         "email-label",
-        "email-input"
+        "email-input",
+        "password-label",
+        "password-input",
+        "login-button"
       ]
     },
-    "username-label": {
+    "email-label": {
       "type": "Label",
       "props": {
-        "content": "Username"
+        "content": "Email"
       },
       "children": []
     },
-    "username-input": {
+    "email-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Enter your username",
-        "type": "text",
-        "value": {
-          "$bindState": "/form/username"
+        "placeholder": "Enter your email",
+        "type": "email"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/email",
+            "value": {
+              "$state": "/form/email"
+            }
+          }
         }
       },
       "children": []
@@ -41,9 +51,17 @@
       "type": "Input",
       "props": {
         "placeholder": "Enter your password",
-        "type": "password",
-        "value": {
-          "$bindState": "/form/password"
+        "type": "password"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/password",
+            "value": {
+              "$state": "/form/password"
+            }
+          }
         }
       },
       "children": []
@@ -51,7 +69,8 @@
     "login-button": {
       "type": "Button",
       "props": {
-        "label": "Login"
+        "label": "Login",
+        "variant": "default"
       },
       "on": {
         "press": {
@@ -60,24 +79,6 @@
             "statePath": "/form/loggedIn",
             "value": true
           }
-        }
-      },
-      "children": []
-    },
-    "email-label": {
-      "type": "Label",
-      "props": {
-        "content": "Email"
-      },
-      "children": []
-    },
-    "email-input": {
-      "type": "Input",
-      "props": {
-        "placeholder": "Enter your email",
-        "type": "email",
-        "value": {
-          "$bindState": "/form/email"
         }
       },
       "children": []

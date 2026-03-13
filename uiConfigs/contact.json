@@ -2,6 +2,15 @@
   "root": "contact-form",
   "elements": {
     "contact-form": {
+      "type": "Card",
+      "props": {
+        "title": "Contact Us"
+      },
+      "children": [
+        "form-stack"
+      ]
+    },
+    "form-stack": {
       "type": "Stack",
       "props": {
         "direction": "vertical",
@@ -27,10 +36,17 @@
     "name-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Enter your name",
-        "type": "text",
-        "value": {
-          "$bindState": "/form/name"
+        "placeholder": "Enter your name"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/name",
+            "value": {
+              "$state": "/form/name"
+            }
+          }
         }
       },
       "children": []
@@ -46,9 +62,17 @@
       "type": "Input",
       "props": {
         "placeholder": "Enter your email",
-        "type": "email",
-        "value": {
-          "$bindState": "/form/email"
+        "type": "email"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/email",
+            "value": {
+              "$state": "/form/email"
+            }
+          }
         }
       },
       "children": []
@@ -56,17 +80,25 @@
     "message-label": {
       "type": "Label",
       "props": {
-        "content": "Message"
+        "content": "Address"
       },
       "children": []
     },
     "message-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Enter your message",
-        "type": "text",
-        "value": {
-          "$bindState": "/form/message"
+        "placeholder": "Type your address here",
+        "type": "text"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/address",
+            "value": {
+              "$state": "/form/address"
+            }
+          }
         }
       },
       "children": []
@@ -74,7 +106,8 @@
     "submit-button": {
       "type": "Button",
       "props": {
-        "label": "Submit"
+        "label": "Submit",
+        "variant": "default"
       },
       "on": {
         "press": {
