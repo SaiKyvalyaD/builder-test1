@@ -2,41 +2,31 @@
   "root": "login-form",
   "elements": {
     "login-form": {
-      "type": "Card",
+      "type": "Stack",
       "props": {
-        "title": "Login"
+        "direction": "vertical",
+        "gap": 10
       },
       "children": [
-        "email-label",
-        "email-input",
+        "username-label",
+        "username-input",
         "password-label",
         "password-input",
         "login-button"
       ]
     },
-    "email-label": {
+    "username-label": {
       "type": "Label",
       "props": {
-        "content": "Email"
+        "content": "Username"
       },
       "children": []
     },
-    "email-input": {
+    "username-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Enter your email",
-        "type": "email"
-      },
-      "on": {
-        "change": {
-          "action": "setState",
-          "params": {
-            "statePath": "/form/email",
-            "value": {
-              "$state": "/form/email"
-            }
-          }
-        }
+        "placeholder": "Enter your username",
+        "type": "text"
       },
       "children": []
     },
@@ -53,31 +43,19 @@
         "placeholder": "Enter your password",
         "type": "password"
       },
-      "on": {
-        "change": {
-          "action": "setState",
-          "params": {
-            "statePath": "/form/password",
-            "value": {
-              "$state": "/form/password"
-            }
-          }
-        }
-      },
       "children": []
     },
     "login-button": {
       "type": "Button",
       "props": {
-        "label": "Login",
-        "variant": "default"
+        "label": "Login"
       },
       "on": {
         "press": {
-          "action": "setState",
+          "action": "trackPress",
           "params": {
-            "statePath": "/form/loggedIn",
-            "value": true
+            "id": "login-button",
+            "label": "Login"
           }
         }
       },

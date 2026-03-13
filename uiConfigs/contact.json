@@ -2,19 +2,10 @@
   "root": "contact-form",
   "elements": {
     "contact-form": {
-      "type": "Card",
-      "props": {
-        "title": "Contact Us"
-      },
-      "children": [
-        "form-stack"
-      ]
-    },
-    "form-stack": {
       "type": "Stack",
       "props": {
         "direction": "vertical",
-        "gap": 16
+        "gap": 10
       },
       "children": [
         "name-label",
@@ -36,18 +27,8 @@
     "name-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Enter your name"
-      },
-      "on": {
-        "change": {
-          "action": "setState",
-          "params": {
-            "statePath": "/form/name",
-            "value": {
-              "$state": "/form/name"
-            }
-          }
-        }
+        "placeholder": "Enter your name",
+        "type": "text"
       },
       "children": []
     },
@@ -64,17 +45,6 @@
         "placeholder": "Enter your email",
         "type": "email"
       },
-      "on": {
-        "change": {
-          "action": "setState",
-          "params": {
-            "statePath": "/form/email",
-            "value": {
-              "$state": "/form/email"
-            }
-          }
-        }
-      },
       "children": []
     },
     "message-label": {
@@ -87,34 +57,22 @@
     "message-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Type your address here",
+        "placeholder": "Enter your address",
         "type": "text"
-      },
-      "on": {
-        "change": {
-          "action": "setState",
-          "params": {
-            "statePath": "/form/address",
-            "value": {
-              "$state": "/form/address"
-            }
-          }
-        }
       },
       "children": []
     },
     "submit-button": {
       "type": "Button",
       "props": {
-        "label": "Submit",
-        "variant": "default"
+        "label": "Submit"
       },
       "on": {
         "press": {
-          "action": "setState",
+          "action": "trackPress",
           "params": {
-            "statePath": "/form/submitted",
-            "value": true
+            "id": "submit-button",
+            "label": "Submit"
           }
         }
       },
