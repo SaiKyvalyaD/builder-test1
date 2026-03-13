@@ -1,0 +1,86 @@
+{
+  "root": "login-form",
+  "elements": {
+    "login-form": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": 16
+      },
+      "children": [
+        "email-label",
+        "email-input"
+      ]
+    },
+    "username-label": {
+      "type": "Label",
+      "props": {
+        "content": "Username"
+      },
+      "children": []
+    },
+    "username-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Enter your username",
+        "type": "text",
+        "value": {
+          "$bindState": "/form/username"
+        }
+      },
+      "children": []
+    },
+    "password-label": {
+      "type": "Label",
+      "props": {
+        "content": "Password"
+      },
+      "children": []
+    },
+    "password-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Enter your password",
+        "type": "password",
+        "value": {
+          "$bindState": "/form/password"
+        }
+      },
+      "children": []
+    },
+    "login-button": {
+      "type": "Button",
+      "props": {
+        "label": "Login"
+      },
+      "on": {
+        "press": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/loggedIn",
+            "value": true
+          }
+        }
+      },
+      "children": []
+    },
+    "email-label": {
+      "type": "Label",
+      "props": {
+        "content": "Email"
+      },
+      "children": []
+    },
+    "email-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Enter your email",
+        "type": "email",
+        "value": {
+          "$bindState": "/form/email"
+        }
+      },
+      "children": []
+    }
+  }
+}
