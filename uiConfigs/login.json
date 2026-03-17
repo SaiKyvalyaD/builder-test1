@@ -1,11 +1,20 @@
 {
-  "root": "login-form",
+  "root": "login-screen",
   "elements": {
-    "login-form": {
+    "login-screen": {
+      "type": "Card",
+      "props": {
+        "title": "Login"
+      },
+      "children": [
+        "form-stack"
+      ]
+    },
+    "form-stack": {
       "type": "Stack",
       "props": {
         "direction": "vertical",
-        "gap": 10
+        "gap": 16
       },
       "children": [
         "username-label",
@@ -25,8 +34,18 @@
     "username-input": {
       "type": "Input",
       "props": {
-        "placeholder": "Enter your username",
-        "type": "text"
+        "placeholder": "Enter your username"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/login/username",
+            "value": {
+              "$state": "/login/username"
+            }
+          }
+        }
       },
       "children": []
     },
@@ -43,6 +62,17 @@
         "placeholder": "Enter your password",
         "type": "password"
       },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/login/password",
+            "value": {
+              "$state": "/login/password"
+            }
+          }
+        }
+      },
       "children": []
     },
     "login-button": {
@@ -52,10 +82,10 @@
       },
       "on": {
         "press": {
-          "action": "trackPress",
+          "action": "setState",
           "params": {
-            "id": "login-button",
-            "label": "Login"
+            "statePath": "/login/submitted",
+            "value": true
           }
         }
       },
