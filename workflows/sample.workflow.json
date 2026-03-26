@@ -1,0 +1,51 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "id": "trigger_1",
+        "position": {
+          "x": 90.8867469879518,
+          "y": 10.486746987951804
+        },
+        "type": "httpTrigger",
+        "data": {
+          "method": "POST",
+          "path": "/webhook",
+          "authentication": "bearer"
+        },
+        "sourcePosition": "right",
+        "measured": {
+          "width": 182,
+          "height": 105
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "service_1",
+        "position": {
+          "x": 380,
+          "y": 100
+        },
+        "type": "serviceCall",
+        "data": {
+          "serviceName": "My Service",
+          "operation": "run"
+        },
+        "measured": {
+          "width": 202,
+          "height": 105
+        },
+        "selected": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "trigger_1_service_1",
+        "source": "trigger_1",
+        "target": "service_1",
+        "type": "step"
+      }
+    ]
+  }
+}

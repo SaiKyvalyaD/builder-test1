@@ -1,0 +1,119 @@
+{
+  "root": "contact-form",
+  "elements": {
+    "contact-form": {
+      "type": "Card",
+      "props": {
+        "title": "Contact Us",
+        "description": "We would love to hear from you!"
+      },
+      "children": [
+        "form-stack"
+      ]
+    },
+    "form-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": 10
+      },
+      "children": [
+        "name-input",
+        "email-input",
+        "phone-input",
+        "message-input",
+        "submit-button"
+      ]
+    },
+    "name-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Your Name"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/name",
+            "value": {
+              "$state": "/form/name"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "email-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Your Email",
+        "type": "email"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/email",
+            "value": {
+              "$state": "/form/email"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "phone-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Your Phone Number",
+        "type": "tel"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/phone",
+            "value": {
+              "$state": "/form/phone"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "message-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Your Message",
+        "type": "text"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/message",
+            "value": {
+              "$state": "/form/message"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "submit-button": {
+      "type": "Button",
+      "props": {
+        "label": "Submit"
+      },
+      "on": {
+        "press": {
+          "action": "submit",
+          "params": {
+            "statePath": "/form"
+          }
+        }
+      },
+      "children": []
+    }
+  }
+}

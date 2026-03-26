@@ -1,0 +1,157 @@
+{
+  "triggerType": "httpTrigger",
+  "name": "sample-2",
+  "version": 1,
+  "data": {
+    "nodes": [
+      {
+        "id": "trigger_1",
+        "position": {
+          "x": -221.2973169169044,
+          "y": 1.8166274054188563
+        },
+        "type": "httpTrigger",
+        "data": {
+          "method": "POST",
+          "label": "sample",
+          "authentication": "bearer",
+          "headers": {
+            "X-Tenant-ID": "test"
+          },
+          "rawBody": "",
+          "sampleBody": "{\n \"hello\":\"world\"\n}",
+          "sampleHeaders": {
+            "hello": "we"
+          }
+        },
+        "sourcePosition": "right",
+        "measured": {
+          "width": 182,
+          "height": 105
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "service_1",
+        "position": {
+          "x": 75.44205062484943,
+          "y": 98.38756716194465
+        },
+        "type": "serviceCall",
+        "data": {
+          "serviceName": "Authentication Service",
+          "authentication": "bearer",
+          "headers": {
+            "X-Tenant-ID": "test",
+            "Authorization": "{{Webhook.headers.authorization}}"
+          },
+          "serviceSlug": "authrs",
+          "method": "GET",
+          "path": "/session/me"
+        },
+        "measured": {
+          "width": 202,
+          "height": 105
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "service_2",
+        "position": {
+          "x": 68.70135850710072,
+          "y": -94.88590809608134
+        },
+        "type": "serviceCall",
+        "data": {
+          "serviceName": "Authentication Service",
+          "authentication": "bearer",
+          "headers": {
+            "X-Tenant-ID": "test",
+            "Authorization": "{{Webhook.headers.authorization}}"
+          },
+          "serviceSlug": "authrs",
+          "method": "GET",
+          "path": "/admin/roles"
+        },
+        "measured": {
+          "width": 202,
+          "height": 105
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "merge_1",
+        "position": {
+          "x": 381.3612207950981,
+          "y": 9.34847348168298
+        },
+        "type": "merge",
+        "data": {
+          "inputCount": 2,
+          "mergeType": "default"
+        },
+        "measured": {
+          "width": 182,
+          "height": 84
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "http_request_1773662553372_hs4fru",
+        "position": {
+          "x": 651.1415560262859,
+          "y": 11.746860775513902
+        },
+        "type": "httpRequest",
+        "data": {
+          "url": "https://chat.googleapis.com/v1/spaces/AAQAwex6Wpg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=Q9wBQPzGchRM0QCCefrpUhevV9t-lDw25N3CSjJHZaA",
+          "method": "POST",
+          "header": {
+            "X-Tenant-ID": "test"
+          },
+          "payload": "{\n\"text\": \"This is to test merge operation. Hi {{current.body.service_1.user.email}}.. Your role {{current.body.service_2.roles[0].name}}\"\n}"
+        },
+        "measured": {
+          "width": 242,
+          "height": 84
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "trigger_1",
+        "target": "service_1",
+        "id": "xy_edge__trigger_1_service_1773646557377_pmea4w"
+      },
+      {
+        "source": "trigger_1",
+        "target": "service_2",
+        "id": "xy_edge__trigger_1_service_2"
+      },
+      {
+        "source": "service_2",
+        "target": "merge_1",
+        "targetHandle": "input-0",
+        "id": "xy_edge__service_2_merge_1input_0"
+      },
+      {
+        "source": "service_1",
+        "target": "merge_1",
+        "targetHandle": "input-1",
+        "id": "xy_edge__service_1_merge_1input_1"
+      },
+      {
+        "source": "merge_1",
+        "target": "http_request_1773662553372_hs4fru",
+        "id": "xy_edge__merge_1_http_request_1773662553372_hs4fru"
+      }
+    ]
+  },
+  "workflowId": "ebef7df5-6c1c-4796-b7d0-9aba8d0a7091"
+}

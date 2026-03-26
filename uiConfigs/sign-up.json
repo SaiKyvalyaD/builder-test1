@@ -1,0 +1,101 @@
+{
+  "root": "signup-form",
+  "elements": {
+    "signup-form": {
+      "type": "Card",
+      "props": {
+        "title": "Sign Up",
+        "description": "Create your account"
+      },
+      "children": [
+        "form-stack"
+      ]
+    },
+    "form-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": 8
+      },
+      "children": [
+        "name-input",
+        "email-input",
+        "password-input",
+        "submit-button"
+      ]
+    },
+    "name-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Full Name"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/name",
+            "value": {
+              "$state": "/form/name"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "email-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/email",
+            "value": {
+              "$state": "/form/email"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "password-input": {
+      "type": "Input",
+      "props": {
+        "placeholder": "Password",
+        "type": "password"
+      },
+      "on": {
+        "change": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/password",
+            "value": {
+              "$state": "/form/password"
+            }
+          }
+        }
+      },
+      "children": []
+    },
+    "submit-button": {
+      "type": "Button",
+      "props": {
+        "label": "Sign Up",
+        "variant": "default"
+      },
+      "on": {
+        "press": {
+          "action": "setState",
+          "params": {
+            "statePath": "/form/submitted",
+            "value": true
+          }
+        }
+      },
+      "children": []
+    }
+  }
+}
